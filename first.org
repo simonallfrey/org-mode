@@ -1,0 +1,91 @@
+#+TITLE: First
+
+
+* Create a head line with a star in the first column
+** A second level headline using two stars
+*** A third level, wait, you get it....
+
+* Doom Emacs org-mode keybindings Sat 15 May 06:31:19 CEST 2021
+
+M-j/k  move headlines up and down.
+
+M-h/l  move them in and out
+
+S-up/down toggle headline priority
+
+S-left/right toggle headline type TODO/
+
+SPC m t change headline type
+
+S-k search online
+
+* How to manipulate headlines
+Here's the down low.
+#+begin_src
+ to escape org mode special characters use:
+ <s TAB to start a src block and indent all content by one space
+ C-v visual block select region then I space esc
+#+end_src
+
+I've got a macro for this: org-quote-visual-seclection-as-src
+It does what it says.
+
+* Another headline
+Some more of that good ol' down low.
+
+* Now let's get going with a TODO headline.
+
+Here's that nice Zaiste chap with his doomcast about this: https://youtu.be/DxygfqLrFSU
+
+** TODO learn how to use TODO headlines
+Simply typing TODO as the first item works or shift left/right can change the headline type
+org-todo-keywords
+
+** PROJ Continue getting younger
+We can also use SPC m t to change the headline type.
+
+** KILL procrastinate forever
+CLOSED: [2021-05-15 Sat 07:21]
+This wasn't working out for me
+
+** DONE Using org-todo-keywords
+CLOSED: [2021-05-15 Sat 07:37]
+Closed items are those after the pipe in the org-todo-keywords sequence.
+#+begin_src
+((sequence "TODO(t)" "PROJ(p)" "LOOP(r)" "STRT(s)" "WAIT(w)" "HOLD(h)" "IDEA(i)" "|" "DONE(d)" "KILL(k)")
+ (sequence "[ ](T)" "[-](S)" "[?](W)" "|" "[X](D)")
+ (sequence "|" "OKAY(o)" "YES(y)" "NO(n)"))
+#+end_src
+
+If you want a timestamp on closed items have the following in your .config
+#+begin_src
+ (setq org-log-done 'time)
+#+end_src
+
+
+** IDEA org-agenda-file-to-front command
+This will add the current file to org-agenda-files
+Now org-agenda t will give an overview of the TODO items.
+SPC o a t will get you there quick.
+Note that closed items will not be shown in the 0 list.
+
+* Lists
+Just start typing e.g. 1) 1. and C-return or M-return for next item
+
+
+1) We can also have un-ordered lists with - + or *
+   1. sub point
+   2.
+   3.
+
+2) List items can be promoted, demoted in the same way as headlines
+   i.e. M-h/j/k/l     and S↓↑→←
+
+3) Insert unicode with SPC i u
+
+4) last numbered point
+
+
+Two blank lines finish the list
+
+* Yet another headline
